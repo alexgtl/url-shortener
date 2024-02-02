@@ -23,13 +23,7 @@ export class SequelizeRepository implements UrlRepository {
   async getDecodedUrl(encodedUrl: string): Promise<DecodedUrl | undefined> {
     try {
       const result = await UrlModel.findOne({ where: { encoded_url: encodedUrl } })
-
-      if (!result) {
-        console.log('result not found')
-        throw new Error()
-      }
-
-      return new DecodedUrl(result.decoded_url)
+      return new DecodedUrl(result?.decoded_url ?? '')
     } catch (error) {
       console.log('Error creando ', error)
     }

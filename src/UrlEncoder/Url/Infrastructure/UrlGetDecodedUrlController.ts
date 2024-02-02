@@ -20,9 +20,17 @@ export class UrlGetDecodedUrlController implements UrlGeneralController {
       const getDecodedUrlUseCase = new GetDecodedUrlUseCase(encodedUrl, this.urlRepository)
       const decodedUrl = await getDecodedUrlUseCase.run()
 
-      res.status(200).send(decodedUrl?.get())
+      const response = {
+        decodedUrl: decodedUrl?.get()
+      }
+      if (!response.decodedUrl) {
+        res.status(404).send('')
+      } else {
+        res.status(200).json(response)
+      }
     } catch (error) {
-      throw new Error()
+      res.status(404).send('')
+      throw new Error('Not found')
     }
   }
 }
