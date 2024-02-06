@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "build": "tsc & node dist/app.js",
+    "serve": "node --env-file .env  dist/app.js",
+    "build": "tsc",
     "dev": "tsnd --respawn --env-file .env src/app.ts",
     "test": "jest",
     "prettier": "prettier --config .prettierrc './src/**/*.ts' --write"
