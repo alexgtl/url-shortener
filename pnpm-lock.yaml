@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@netlify/functions':
+    specifier: ^2.5.1
+    version: 2.5.1
   '@supabase/supabase-js':
     specifier: ^2.39.3
     version: 2.39.3
@@ -29,6 +32,9 @@ dependencies:
   sequelize:
     specifier: ^6.35.2
     version: 6.35.2(mysql2@3.7.0)
+  serverless-http:
+    specifier: ^3.2.0
+    version: 3.2.0
 
 devDependencies:
   '@jest/globals':
@@ -754,6 +760,27 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
+
+  /@netlify/functions@2.5.1:
+    resolution: {integrity: sha512-7//hmiFHXGusAzuzEuXvRT9ItaeRjRs5lRs6lYUkaAXO1jnTWYDB2XdqFq5X4yMRX+/A96nrQ2HwCE+Pd0YMwg==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      '@netlify/serverless-functions-api': 1.13.0
+      is-promise: 4.0.0
+    dev: false
+
+  /@netlify/node-cookies@0.1.0:
+    resolution: {integrity: sha512-OAs1xG+FfLX0LoRASpqzVntVV/RpYkgpI0VrUnw2u0Q1qiZUzcPffxRK8HF3gc4GjuhG5ahOEMJ9bswBiZPq0g==}
+    engines: {node: ^14.16.0 || >=16.0.0}
+    dev: false
+
+  /@netlify/serverless-functions-api@1.13.0:
+    resolution: {integrity: sha512-H3SMpHw24jWjnEMqbXgILWdo3/Iv/2DRzOZZevqqEswRTOWcQJGlU35Dth72VAOxhPyWXjulogG1zJNRw8m2sQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    dependencies:
+      '@netlify/node-cookies': 0.1.0
+      urlpattern-polyfill: 8.0.2
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2428,6 +2455,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /is-promise@4.0.0:
+    resolution: {integrity: sha512-hvpoI6korhJMnej285dSg6nu1+e6uxs7zG3BYAm5byqDsgJNWwxzM6z6iZiAgQR4TJ30JmBTOwqZUw3WlyH3AQ==}
+    dev: false
+
   /is-property@1.0.2:
     resolution: {integrity: sha512-Ks/IoX00TtClbGQr4TWXemAnktAQvYB7HzcCxDGqEZU6oCmb2INHuOoKxbtR+HFkmYWBKv/dOZtGRiAjDhj92g==}
     dev: false
@@ -3630,6 +3661,11 @@ packages:
       - supports-color
     dev: false
 
+  /serverless-http@3.2.0:
+    resolution: {integrity: sha512-QvSyZXljRLIGqwcJ4xsKJXwkZnAVkse1OajepxfjkBXV0BMvRS5R546Z4kCBI8IygDzkQY0foNPC/rnipaE9pQ==}
+    engines: {node: '>=12.0'}
+    dev: false
+
   /set-function-length@1.1.1:
     resolution: {integrity: sha512-VoaqjbBJKiWtg4yRcKBQ7g7wnGnLV3M8oLvVWwOk2PdYY6PEFegR1vezXR0tw6fZGF9csVakIRjrJiy2veSBFQ==}
     engines: {node: '>= 0.4'}
@@ -4036,6 +4072,10 @@ packages:
     dependencies:
       punycode: 2.3.1
     dev: true
+
+  /urlpattern-polyfill@8.0.2:
+    resolution: {integrity: sha512-Qp95D4TPJl1kC9SKigDcqgyM2VDVO4RiJc2d4qe5GrYm+zbIQCWWKAFaJNQ4BhdFeDGwBmAxqJBwWSJDb9T3BQ==}
+    dev: false
 
   /utils-merge@1.0.1:
     resolution: {integrity: sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==}
