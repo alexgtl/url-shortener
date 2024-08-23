@@ -4,7 +4,7 @@ import { UrlRepository } from '../../Domain/UrlRepository'
 import { createClient } from '@supabase/supabase-js'
 
 export class SupabaseRepository implements UrlRepository {
-  SUPABASE_URL = process.env.SUPABASE_URL ?? 'https://orkrfpcggppmmfxfbacb.supabase.co'
+  SUPABASE_URL = process.env.SUPABASE_URL ?? ''
   SUPABASE_KEY = process.env.SUPABASE_KEY ?? ''
   SUPABASE_URLS_TABLE = process.env.SUPABASE_URLS_TABLE ?? ''
 
