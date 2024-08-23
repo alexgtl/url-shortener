@@ -12,7 +12,7 @@ export class CreateEncodedUrlUseCase {
 
   async run() {
     try {
-      console.log('Create user case')
+      console.log('Create encoded url')
       await this.urlRepository.saveUrl(this.encodedDecodedUrl)
     } catch (error) {
       console.log('Error in CreateEncodedUrlUseCase', error)

@@ -4,7 +4,7 @@ import { UrlRepository } from '../../Domain/UrlRepository'
 import { createClient } from '@supabase/supabase-js'
 
 export class SupabaseRepository implements UrlRepository {
-  SUPABASE_URL = process.env.SUPABASE_URL ?? ''
+  SUPABASE_URL = process.env.SUPABASE_URL ?? 'https://orkrfpcggppmmfxfbacb.supabase.co'
   SUPABASE_KEY = process.env.SUPABASE_KEY ?? ''
   SUPABASE_URLS_TABLE = process.env.SUPABASE_URLS_TABLE ?? ''
 
@@ -20,8 +20,6 @@ export class SupabaseRepository implements UrlRepository {
         encoded_url: encodedDecoded.encodedUrl.get(),
         decoded_url: encodedDecoded.decodedUrl.get()
       })
-
-      console.log('UserCreado', error)
     } catch (error) {
       throw Error()
     }
@@ -30,7 +28,6 @@ export class SupabaseRepository implements UrlRepository {
   async getDecodedUrl(encodedUrl: string): Promise<DecodedUrl | undefined> {
     try {
       const { data } = await this.supabaseClient.from(this.SUPABASE_URLS_TABLE).select().eq('encoded_url', encodedUrl)
-
       if (!data) {
         return
       }

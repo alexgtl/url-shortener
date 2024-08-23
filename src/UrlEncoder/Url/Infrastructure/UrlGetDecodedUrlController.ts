@@ -12,9 +12,9 @@ export class UrlGetDecodedUrlController implements UrlGeneralController {
   }
 
   async handler(req: Request, res: Response): Promise<void> {
-    try {
-      const url = req.params.encodedUrl
+    const url = req.params.encodedUrl
 
+    try {
       const encodedUrl = new EncodedUrl(url)
 
       const getDecodedUrlUseCase = new GetDecodedUrlUseCase(encodedUrl, this.urlRepository)
@@ -23,14 +23,13 @@ export class UrlGetDecodedUrlController implements UrlGeneralController {
       const response = {
         decodedUrl: decodedUrl?.get()
       }
-      if (!response.decodedUrl) {
-        res.status(404).send('')
-      } else {
-        res.status(200).json(response)
-      }
+      res.status(200).json(response)
     } catch (error) {
-      res.status(404).send('')
-      throw new Error('Not found')
+      const response = {
+        decodedUrl: 'not-found'
+      }
+
+      res.status(404).json(response)
     }
   }
 }
